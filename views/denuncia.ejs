@@ -1,0 +1,27 @@
+<%- include("includes/header"); %>
+
+<div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+    <div class="form">
+        <span class="anonimo"><img src="img/problema.png" alt=""></span>
+        <h3>Denúncias em sistemas</h3>
+        <form action="">
+          <div class="form_input">
+            <i class="denuncia"><img src="img/denuncia.png" alt="">Denúncias</i>
+            <span class="denuncia-count"><!-- Contagem de Denúncias Aqui --></span>
+            <span class="bar"></span>
+          </div>
+          <div class="form_input">
+            <i class="denuncia"><img src="img/pendencias.png" alt="">Pendentes</i>
+            <span class="pendentes-count"><!-- Contagem de Pendentes Aqui --></span>
+            <span class="bar"></span>
+          </div>
+          <div class="form_input">
+            <i class="denuncia"><img src="img/solve.png" alt="">Solucionados</i>
+            <span class="solucionados-count"><!-- Contagem de Solucionados Aqui --></span>
+            <span class="bar"></span>
+          </div>
+          <a href="/index" class="form_button">Inicio</a>
+        </form>
+
+
+<%- include("includes/footer"); %>

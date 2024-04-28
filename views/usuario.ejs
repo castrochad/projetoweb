@@ -1,0 +1,82 @@
+<%- include("includes/header"); %>
+
+   <div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+
+    <div class="form">
+        <span class="form_title">Bem-vindo, <%= usuario.nome %>!</span>
+         <img src="/foto-de-perfil/<%= usuario.foto %>" alt="Foto de Perfil" class="perfil-foto" id="editarFoto" style="width: 100px; height: 100px;">
+         <div class="center-button">
+            <!-- Botão "Alterar Foto" personalizado -->
+            <label for="novaFoto" class="foto-label custom-button">
+              <i class="icons"><img src="" alt=""></i> Alterar
+            </label>
+          </div>
+        <form action="/atualizar-foto" method="POST" enctype="multipart/form-data">
+            <div class="form_input">
+              <!-- Input de arquivo oculto -->
+              <input type="file" name="novaFoto" id="novaFoto" style="display: none;">
+            </div>
+          
+          <!-- Elemento para exibir mensagem de sucesso ou erro -->
+          <div id="mensagem"></div>
+        <div class="denuncia-box">
+            <p><strong>Nome:</strong> 
+                <span id="nome"><%= usuario.nome %></span> 
+                <i class="material-icons" style="font-size: 20px;" onclick="habilitarEdicao('nome', '<%= usuario.id %>')">edit</i>
+              </p>
+        
+              <p><strong>Email:</strong> 
+                <span id="email"><%= usuario.email %></span> 
+                <i class="material-icons" style="font-size: 20px;" onclick="habilitarEdicao('email', '<%= usuario.id %>')">edit</i>
+              </p>
+        
+              <p><strong>Data de Nascimento:</strong> 
+                <span id="dataNasc"><%= usuario.data_nasc.toISOString().split('T')[0] %></span> 
+                <i class="material-icons" style="font-size: 20px;" onclick="habilitarEdicao('dataNasc', '<%= usuario.id %>')">edit</i>
+              </p>
+        
+              <p><strong>Sexo:</strong> 
+                <span id="sexo"><%= usuario.sexo %></span> 
+                <% if (usuario.sexo === 'M') { %>
+                Masculino
+            <% } else if (usuario.sexo === 'F') { %>
+                Feminino
+            <% } else { %>
+                Outro
+            <% } %>
+            <i class="material-icons" style="font-size: 20px;" onclick="habilitarEdicao('sexo', '<%= usuario.id %>')">edit</i>
+              </p>
+        
+              <p><strong>Telefone:</strong> 
+                <span id="telefone"><%= usuario.telefone %></span> 
+                <i class="material-icons" style="font-size: 20px;" onclick="habilitarEdicao('telefone', '<%= usuario.id %>')">edit</i>
+              </p>
+        
+                    <!-- Se o usuário é um administrador, exiba todas as denúncias -->
+                    <% if (isAdmin) { %>
+                        <h2>Cargo Administrador</h2>
+                        <h2 class="form_button">Todas as Denúncias</h2>
+                        <div class="denuncias-container">
+                            <ul id="denuncias-list">
+                                <% denuncias.forEach(denuncia => { %>
+                                    <li>
+                                        <div class="denuncia-box">
+                                            <strong>ID da Denúncia:</strong> <%= denuncia.id %><br>
+                                            <p><strong>ID Usuário:</strong> <%= denuncia.id_usuario %></p>
+                                            <form action="/excluirdenuncia/excluir-denuncia" method="POST">
+                                                <input type="hidden" name="denunciaId" value="<%= denuncia.id %>">
+                                                <button type="submit" class="form_button">Excluir Denúncia</button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                    <% } else { %>
+                        <h2>Cargo Usuário</h2>
+                        <a href="formulario" class="form_button">Realizar Denúncia</a>
+                        <a href="arquivodenuncia" class="form_button">Denúncias Registrada</a>
+                    <% } %>
+                    </div>
+                </form>
+<%- include("includes/footer"); %>

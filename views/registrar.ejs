@@ -1,0 +1,43 @@
+<%- include("includes/header"); %>
+
+      <div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+        <div class="form">
+            <span class="form_title">Posso ajudar ?</span>
+            <h3>Envie-nos uma mensagem</h3>
+            <form action="">
+    
+                <div class="message">
+                    <textarea name="message" id="" placeholder="MENSAGEM" rows="5" cols="10"></textarea>
+                    <!-- <i class="icons">Denúncias 100% anônimas</i> -->
+                </div>
+                <div class="form_input">
+                    <i class="icons"><img src="img/localização.png" alt=""></i>
+                    <input type="text" placeholder="CEP" id="cepInput">
+                    <span class="bar"></span>
+                </div>
+                
+                <div class="form_input">
+                    <i class="icons"><img src="img/localização.png" alt=""></i>
+                    <input type="text" placeholder="Rua" id="locationInput">
+                    <span class="bar"></span>
+                </div>
+                
+                <div class="form_input">
+                    <i class="icons"><img src="img/data.png" alt=""></i>
+                    <input type="datetime-local" placeholder="Data e Hora" id="dateTimeInput">
+                    <span class="bar"></span>
+                </div>
+                
+                <div class="form_input">
+                    <i class="icons"><img src="img/arquivo.png" alt=""></i> <!-- Substitua 'img/anexar.png' pelo caminho da imagem do botão de anexar arquivos -->
+                    <input type="file" id="fileInput" style="display: none;">
+                    <label for="fileInput" class="fileLabel">Anexar Arquivos</label>
+                    <span class="bar"></span>
+                </div>
+                
+                
+            </form>
+            <a href="agradecimento"><button type="submit" class="form_button">Enviar Denúncia</button></a>
+        </div>
+
+<%- include("includes/footer"); %>

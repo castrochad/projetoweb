@@ -1,0 +1,98 @@
+<%
+function getStatusText(id_status) {
+    switch (id_status) {
+        case 1:
+            return 'Registrada';
+        case 2:
+            return 'Em Análise';
+        case 3:
+            return 'Resolvendo';
+        case 4:
+            return 'Resolvida';
+        default:
+            return 'Desconhecido';
+    }
+}
+
+function getClassificacaoText(id_classificacao) {
+    switch (id_classificacao) {
+        case 1:
+            return 'Baixo';
+        case 2:
+            return 'Médio';
+        case 3:
+            return 'Alto';
+        default:
+            return 'Desconhecido';
+    }
+}
+
+// Ordena as denúncias por ID de denúncia em ordem crescente
+denuncias.sort(function(a, b) {
+    return a.id - b.id;
+});
+%>
+
+<%
+// Inverte a ordem das denúncias para mostrar a última denúncia primeiro
+denuncias.reverse();
+
+// Pega apenas as 10 últimas denúncias
+const ultimasDenuncias = denuncias.slice(0, 10);
+%>
+
+
+<%- include("includes/header"); %>
+
+<div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+
+    <div class="form">
+        <span class="form_title">Denúncias</span>
+        <h3>10 Ultimas Denúncias</h3>
+        <div class="arquivosdenuncia-container">
+            <ul id="denuncias-list">
+                <% ultimasDenuncias.forEach(denuncia => { %>
+                    <li>
+                    <li>
+                                        <div class="denuncia-box">
+                                            <div class="denuncia-info">
+                                                <h2 class="denuncia-id">ID da Denúncia: <%= denuncia.id %></h2>
+                                                <p><strong>Descrição:</strong> <%= denuncia.descricao %></p>
+                                                <p><strong>Data da Denúncia:</strong> <%= denuncia.data_deuncia ? denuncia.data_deuncia.toLocaleString() : 'Data não disponível' %></p>
+                                                <p><strong>Endereço:</strong> <%= denuncia.endereco %></p>
+                                                <p><strong>CEP:</strong> <%= denuncia.cep %></p>
+                                                <p><strong>ID Usuário:</strong> <%= denuncia.id_usuario %></p>
+                                                <p> <strong>Status:</strong> <%= getStatusText(denuncia.id_status) %> <strong>Classificação:</strong> <%= getClassificacaoText(denuncia.id_classificacao) %></p>
+                                                <div class="imagem-legenda">Anexo</div>
+                                                <% const imagePath = `http://localhost:3000/uploads/${denuncia.foto}`; %>
+                                                <div>
+                                                    <img src="<%= imagePath %>" alt="" class="borda-azul">
+                                                </div>
+                                                <button class="comentarBtn" data-denuncia-id="<%= denuncia.id %>">Visualizar & Comentar</button>
+                                                    <div id="myModal" class="modal">
+                                                        <div class="modal-content">
+                                                            <span class="close">&times;</span>
+                                                            <h3>Comentários</h3>
+                                                            <div class="arquivosdenuncia-container">
+                                                            <div id="comentariosContainer" class="denuncia-box"></div>
+                                                            <form id="comentarioForm">
+                                                                <input type="hidden" id="idDenuncia">
+                                                                </div>
+                                                                <textarea name="descricao" placeholder="Deixe aqui um novo comentário" id="novoComentario" rows="5" cols="10"style="width: 100%;"></textarea>
+                                                                <button type="submit" class="form_button">Enviar Comentário</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    
+                                    </li>
+                                <% }); %>
+                        
+                    </ul>
+
+                </div>
+                <a href="formulario"><button type="submit" class="form_button">Nova Denúncia</button></a>
+                </form>
+<%- include("includes/footer"); %>

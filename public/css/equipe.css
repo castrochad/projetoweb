@@ -1,0 +1,57 @@
+:root{
+  /* textarea */
+  --1: #5f82c3;
+  /* botões geral form  retangulo  */
+  --2: #0d5692;
+  /* botões geral form  retangulo  hover */
+  --3: #5f82c3;
+  --4: #4e4e4c;;
+  --5: #f6f1f5;
+  --6: #5f67d1;
+  --7: #14609e;
+}
+
+.person {
+    padding: 10px;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .person img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .person2 img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .person h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .person p {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .person a img{
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+}
+  .speech-bubble {
+    color: var(--5);
+    width: 300px;
+    height: auto;
+    display: inline-block;
+    position: relative;
+    background-color: var(--2);
+    border-radius: 10px;
+    padding: 10px 10px;
+  }

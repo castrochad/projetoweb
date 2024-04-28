@@ -1,0 +1,49 @@
+<%- include("includes/header"); %>
+
+<div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+    <div class="form">
+        <span class="form_title">Criar conta</span>
+        <form id="registroForm">
+            <div class="form_input">
+                <i class="icons"><img src="img/usuario.png" alt=""></i>
+                <input type="text" name="nome" placeholder="Nome" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <i class="icons"><img src="img/email.png" alt=""></i>
+                <input type="email" name="email" placeholder="Email" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <i class="icons"><img src="img/senha.png" alt=""></i>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <i class="icons"><img src="img/senha.png" alt=""></i>
+                <input type="password" name="confirmarSenha" placeholder="Confirmar Senha" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <i class="icons"><img src="img/data.png" alt=""></i>
+                <input type="date" name="data_nasc" placeholder="Data de Nascimento" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <i class="icons"><img src="img/sexo.png" alt=""></i>
+                <select name="sexo" required>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <i class="icons"><img src="img/telefone.png" alt=""></i>
+                <input type="tel" name="telefone" placeholder="Telefone" required>
+                <span class="bar"></span>
+            </div>
+            <button type="submit" class="form_button">Confirmar</button>
+        </form>
+
+<%- include("includes/footer"); %>

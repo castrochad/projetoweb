@@ -1,0 +1,29 @@
+<%- include("includes/header"); %>
+
+
+    <div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+    <div class="form">
+        <span class="form_title">Login</span>
+        <h3>Acesse sua conta</h3>
+        <div id="alert-container" class="alert-container"></div>
+        <form action="/login" method="POST">
+            <div class="form_input">
+                <i class="icons"><img src="img/usuario.png" alt=""></i>
+                <input type="text" name="nome" placeholder="Nome" required>
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <i class="icons"><img src="img/senha.png" alt=""></i>
+                <input type="password" name="senha" placeholder="Senha">
+                <span class="bar"></span>
+            </div>
+            <button type="submit" class="form_button">Entrar</button>
+
+            <span class="form_switch">
+                <label>Esqueceu a senha ? <a href="recuperar"> Recupere aqui.</a></label>
+                <label>Não tem conta ? <a href="cadastro">Cadastre-se.</a></label>
+            </span>
+        </form>
+
+
+<%- include("includes/footer"); %>

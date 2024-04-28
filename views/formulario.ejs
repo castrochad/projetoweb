@@ -1,0 +1,32 @@
+<%- include("includes/header"); %>
+
+<div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+    <div class="form">
+      <span class="form_title">Posso ajudar ?</span>
+      <h3>Envie-nos uma mensagem</h3>
+      <form action="/enviar-denuncia" method="post" enctype="multipart/form-data" id="denunciaForm">
+        <div class="message">
+          <textarea name="descricao" placeholder="MENSAGEM" rows="5" cols="10"></textarea>
+          <!-- <i class="icons">Denúncias 100% anônimas</i> -->
+        </div>
+        <div class="form_input">
+          <i class="icons"><img src="img/localização.png" alt=""></i>
+          <input type="text" name="idEndereco" placeholder="CEP" id="cepInput" maxlength="8"required>
+          <span class="bar"></span>
+        </div>
+        <div class="form_input">
+          <i class="icons"><img src="img/localização.png" alt=""></i>
+          <input type="text" name="endereco" placeholder="Rua" id="locationInput"required>
+          <span class="bar"></span>
+        </div>
+        <div class="form_input">
+          <i class="icons"><img src="img/arquivo.png" alt=""></i>
+          <input type="file" name="foto" id="fileInput">
+          <label for="fileInput" class="fileLabel"></label>
+          <span class="bar"></span>
+        </div>
+        <div id="error-message" class="error-message"></div>
+        <button type="submit" class="form_button">Enviar Denúncia</button>
+      </form>
+
+<%- include("includes/footer"); %>

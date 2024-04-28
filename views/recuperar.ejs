@@ -1,0 +1,24 @@
+<%- include("includes/header"); %>
+
+
+<div tabindex="0" class="content" onfocus="closeSidebar()" id="content">
+    <div class="form">
+        <span class="form_title">Redifinir Senha</span>
+        <form id="formulario">
+            <div class="form_input">
+                <i class="icons"><img src="img/email.png" alt=""></i>
+                <input id="emailInput" type="text" placeholder="Email cadastrado">
+                <span class="bar"></span>
+            </div>
+            <div class="form_input">
+                <span class="color">Certifiquem-se que o email digitado já foi cadastrado, caso contrário não serão enviados dados para nova senha! <br><br>Equipe Denúncia Certa</span>
+                <span class="bar"></span>
+            </div>
+            <button type="submit" class="form_button">Enviar</button>
+            <span class="form_switch">
+                <label>Dificuldades ? <a href="mailto:equipehydritec@gmail.com" target="_blank">Clique aqui</a></label>
+            </span>
+        </form>
+
+
+<%- include("includes/footer"); %>
